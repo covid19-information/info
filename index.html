@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Title, Webpage Icon-->
+    <title>World COVID-19 Data</title>
+    <link rel="shortcut icon" href="imgs/page-icon.png" type="image/x-icon">
+    
+    <!-- Google Fonts Link-->
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class='container'>
+        <div class='row'>
+          <img src='imgs/page-icon.png' id='header_img' class='col-xs-6'>
+          <div class='heading col-xs-6'>
+            <h1>World COVID-19 Data</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Precautions -->
+    <div class='container'>
+      <center>
+        <div class='col-xs-12 col-md-8' id='precautions'>
+          <div class='row'>
+            <img src='imgs/mask.png' id='prec_img' class='col-xs-5'>
+            <div class='col-xs-6'>
+              <h2 id='tip'>Wear a mask!</h2>
+            </div>
+          </div>
+        </div>
+        <div class='row'>
+          <button onclick='back()' id='back' class='col-xs-5'>Back</button>
+          <button onclick='next()' id='next' class='col-xs-5'>Next</button>
+        </div>
+      </center>
+    </div>
+    
+    <hr>
+
+    <!-- COVID Data -->
+    <div class="container">
+      <h2>Vaccination data by country</h2>
+      <div class="search">
+        <input class="col-xs-8" id="country" placeholder="Enter country to see vaccination progress">
+        <button id="submit_btn" class="col-xs-3" onclick="loadCovidData()">Search</button>
+      </div>
+      <br><br>
+      <div id="error"></div>
+      <table id='v_data'></table>
+    </div>
+    
+    <hr>
+    
+    <!-- Mask Recognizer -->
+    <div class='container'>
+      <button onclick='startRecognizer()' class='col-xs-11' id='start_btn'>Click here to see if someone is wearing a mask!</button><br>
+      <h2 id="result"></h2>
+      <div id='appendCamView'></div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+      <div class='container'>
+        <h3>Created by Darsh Choudhary</h3>
+        <h3>Data Sources: </h3>
+        <p>
+          <a href='https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json'>https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json</a><br>
+          <a href='https://teachablemachine.withgoogle.com/models/z1bAq0zGI/model.json'>https://teachablemachine.withgoogle.com/models/z1bAq0zGI/model.json</a>
+        </p>
+      </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script src="js/precautions.js"></script>
+    <script src="js/maskrecog.js"></script>
+    <script src="js/coviddata.js"></script>
+  </body>
+</html>
